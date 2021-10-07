@@ -1,0 +1,108 @@
+
+
+{% load static %}
+{% include "header.html" %}
+
+
+<div class="body-content outer-top-xs">
+	<div class="container">
+	   <div class="row ">
+
+		  <div class="container-fluid">
+			<div class="row">
+			   <div class="col"></div>
+			</div>
+			<section id="cart_section">
+			   <div class="container-fluid">
+				  <div class="add_to_cart my-4">
+					 <div class="row">
+						<div class="col-sm-12 col-md-7 col-lg-7 col-xl-7">
+						   <div class="card">
+							  <div class="card-header" style="padding-bottom: 2px !important;">
+								 <h5>Your Cart Item(s)</h5>
+							  </div>
+							  <div class="card-body pb-0">
+								 <div class="row">
+									<div class="col-6 col-sm-6 col-md-3">
+									   <div class="cart_image"><img alt="Oops cart image not found" class="img-responsive" src="http://127.0.0.1:8000/media/pears.jpg" style="max-width: 100%"></div>
+									</div>
+									<div class="col-sm-12 col-md-9 col-ml-9 col-lg-9">
+									   <div class="product_desc">
+										  <p>Name : Nature Republic Argan Essential Deep Care Shampoo, 300 ml</p>
+										  <p>Brand : Nature Republic</p>
+										  <p>Weight : 300 ML</p>
+										  <p>Price : 1,450</p>
+										  <div class="row">
+											 <div class="col">
+												<div class="button btn-group mb-2"><button class="entry minus1" style="width: 40px"><b>-</b></button><button class="entry value12" style="width: 40px">1</button><button class="entry plus1" style="width: 40px"><b>+</b></button></div>
+												
+											 </div>
+											 <div class="col">
+												<form action="/carts/remove/" class="form-product-ajax" data-endpoint="" method="POST"><input name="csrfmiddlewaretoken" type="hidden" value="7kl3wBKNTWadW8LcHM6t9RznaSrpjF23jlrYkdHbltTjVDH2Bi0vzIxlj7IaxGCE"><input class="cart-item-product-id" name="item_id" type="hidden" value="20367"><input class="cart-item-item-quantity" name="item_quantity" type="hidden" value=""><button class="btn btn-outline-secondary cart_remove" style="cursor: pointer;" type="submit">Remove</button></form>
+											 </div>
+										  </div>
+									   </div>
+									   <br>
+									</div>
+								 </div>
+								 <hr>
+							  </div>
+
+
+						   </div>
+						</div>
+						<div class="col-12 col-sm-12 col-md-5 total_price">
+						   <div class="card">
+							  <div class="card-header" style="padding-bottom: 2px !important;">
+								 <h5 class="text-center">Your Cart Overview</h5>
+							  </div>
+							  <div class="card-body">
+								 <table class="table">
+									<thead>
+									   <tr>
+										  <th>Item</th>
+										  <th>Quantity</th>
+										  <th>Price</th>
+									   </tr>
+									</thead>
+									<tbody>
+									   <tr>
+										  <td>Nature Republic Argan Essential Deep Care Shampoo, 300 ml</td>
+										  <td style="text-align: right">1</td>
+										  <td style="text-align: right">1,450</td>
+									   </tr>
+									 
+									   <tr>
+										  <th>Sub Total</th>
+										  <th colspan="2"><span class="float-right" style="text-align: right"><b>৳</b> 2,120</span></th>
+									   </tr>
+									</tbody>
+								 </table>
+								 <div class="clearfix mb-4"></div>
+								 <a class="btn btn-default btn-block" href="/" style="color:rgb(3, 0, 0); background: #fdd922 !important;">Continue Shopping</a> 
+								 <a class="btn btn-default btn-block mt-2" href="{% url 'checkouts' %}" style="color: white; background: #157ed2 !important;">Checkout</a>
+							  </div>
+						   </div>
+						</div>
+					 </div>
+				  </div>
+			   </div>
+			</section>
+		
+		 </div>
+		 
+		 
+
+
+		  <!-- /.shopping-cart -->
+	   </div>
+	   <!-- /.row -->
+	   <!-- ============================================== BRANDS CAROUSEL : END ============================================== -->	
+	</div>
+	<!-- /.container -->
+ </div>
+ 
+ 
+
+{% include "footer.html" %}
+

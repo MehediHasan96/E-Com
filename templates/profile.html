@@ -1,0 +1,266 @@
+
+
+{% load static %}
+{% include "header.html" %}
+
+<style>
+   .avatars {
+   vertical-align: middle;
+   width: 160px;
+   height: 160px;
+   border-radius: 50%;
+
+
+   }
+
+</style>
+
+<div class="body-content outer-top-xs">
+
+
+
+<div class="container">
+   <div class="row single-product">
+      <div class="col-md-12">
+         <div class="product-tabs inner-bottom-xs  wow fadeInUp animated animated" style="visibility: visible; animation-name: fadeInUp;">
+            <div class="row">
+               <div class="col-sm-2">
+                  <ul id="product-tabs" class="nav nav-tabs nav-tab-cell">
+                     <li class="active"><a data-toggle="tab" href="#description">Profile</a></li>
+                     <li class=""><a data-toggle="tab" href="#review">Order</a></li>
+                  </ul>
+                  <!-- /.nav-tabs #product-tabs -->
+               </div>
+               <div class="col-sm-10">
+                  <div class="tab-content">
+                     <div id="description" class="tab-pane active">
+                        <div class="product-tab">
+                           <h3 class="text-center text-success"></h3>
+                           <div class="container bootstrap snippet">
+                              <div class="row">
+                                 <form method="POST" action="http://localhost/o-ecommerce80/update_myaccount" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data" name="editCategoryForm">
+                                    <input name="_token" type="hidden" value="6k2vTHE0OiDJAtTLLUEhUy2joUpPkSgHJP9Ii4OH">
+                                    <input type="hidden" name="_token" value="6k2vTHE0OiDJAtTLLUEhUy2joUpPkSgHJP9Ii4OH">
+                                    <div class="col-sm-8">
+                                       <!--left col-->
+                                       <div class="text-center">
+                                          <img src="{{ request.session.userimage }}" class="avatars img-circle img-thumbnail" alt="avatar">
+                                          <h6>Upload a different photo...</h6>
+                                          <input type="file" name="avatar" class="text-center center-block file-upload">
+                                       </div>
+                                       <br>
+                                    </div>
+                                    <!--/col-3-->
+                                    <div class="col-sm-10">
+                                       <div class="tab-content">
+                                          <div class="tab-pane active" id="home">
+                                             <hr>
+                                             <div class="form-inline">
+                                                <div class="form-group">
+                                                   <div class="col-sm-6">
+                                                      <label for="name">
+                                                         <h4>First name</h4>
+                                                      </label>
+                                                      <input type="text" class="form-control" value="Md.Mizanur Rahaman" name="name" id="name" placeholder="First name" title="enter your first name if any.">
+                                                      <input type="hidden" value="1" class="form-control" name="id">
+                                                      <input type="hidden" name="orderid" value="1">
+                                                   </div>
+                                                </div>
+                                                <div class="form-group">
+                                                   <div class="col-sm-6">
+                                                      <label for="last_name">
+                                                         <h4>Last name</h4>
+                                                      </label>
+                                                      <input type="text" class="form-control" value="(sobuz)" name="last_name" id="last_name" placeholder="Last name" title="enter your last name if any.">
+                                                   </div>
+                                                </div>
+                                                <div class="form-group">
+                                                   <div class="col-sm-6">
+                                                      <label for="mobile">
+                                                         <h4>Mobile</h4>
+                                                      </label>
+                                                      <input type="text" class="form-control" value="01774023737" name="mobile" id="mobile" placeholder="enter mobile number" title="enter your mobile number if any.">
+                                                   </div>
+                                                </div>
+                                                <div class="form-group">
+                                                   <div class="col-sm-6">
+                                                      <label for="email">
+                                                         <h4>Email</h4>
+                                                      </label>
+                                                      <input type="email" class="form-control" value="sobuz80@gmail.com" name="email" id="email" placeholder="you@email.com" title="enter your email.">
+                                                   </div>
+                                                </div>
+                                                <div class="form-group">
+                                                   <div class="col-sm-6">
+                                                      <label for="Address">
+                                                         <h4>Delivery Address</h4>
+                                                      </label>
+                                                      <input type="text" class="form-control" value="Mohakali Banani" name="address" id="Address" placeholder="Delivery Address" title="enter a Address">
+                                                   </div>
+                                                </div>
+                                                <div class="form-group">
+                                                   <div class="col-sm-6">
+                                                      <label for="password">
+                                                         <h4>Password</h4>
+                                                      </label>
+                                                      <input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password.">
+                                                   </div>
+                                                </div>
+                                                <div class="form-group">
+                                                   <div class="col-sm-12">
+                                                      <label><input type="radio" name="delivery_type" value="1" checked="">Cash On Dilavery</label>
+                                                   </div>
+                                                </div>
+                                                <div class="form-group">
+                                                   <div class="col-sm-12">
+                                                      <br>
+                                                      <br>
+                                                      <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i>Place order</button>
+                                                      <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i>Reset</button>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                             <hr>
+                                          </div>
+                                          <!--/tab-pane-->
+                                       </div>
+                                       <!--/tab-pane-->
+                                    </div>
+                                    <!--/tab-content-->
+                                 </form>
+                              </div>
+                              <!--/col-9-->
+                           </div>
+                           <!--/row-->
+                        </div>
+                     </div>
+                     <!-- /.tab-pane -->
+                     <div id="review" class="tab-pane">
+                        <div class="col-sm-10">
+                           <div class="tab-content">
+                              <div id="description" class="tab-pane active">
+                                 <div class="product-tab">
+                                    <h3 class="titles">Order Product Labels</h3>
+                                    <table class="shop_table order_details">
+                                       <thead>
+                                          <tr>
+                                             <th class="product-name">Order status</th>
+                                             <th class="product-name">Order ID</th>
+                                             <th class="product-name">Product</th>
+                                             <th class="product-total">Total</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr class="order_item">
+                                             <td class="product-name">
+                                                Processing
+                                             </td>
+                                             <td class="product-name">
+                                                39439
+                                             </td>
+                                             <td class="product-name">
+                                                <a href="http://localhost/o-ecommerce80/details/2">almonds</a> <strong class="product-quantity">× 1</strong>
+                                             </td>
+                                             <td class="product-total">
+                                                <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">৳&nbsp;</span>250</span>
+                                             </td>
+                                          </tr>
+                                          <tr class="order_item">
+                                             <td class="product-name">
+                                                Processing
+                                             </td>
+                                             <td class="product-name">
+                                                39439
+                                             </td>
+                                             <td class="product-name">
+                                                <a href="http://localhost/o-ecommerce80/details/11">Banana</a> <strong class="product-quantity">× 1</strong>
+                                             </td>
+                                             <td class="product-total">
+                                                <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">৳&nbsp;</span>300</span>
+                                             </td>
+                                          </tr>
+                                          <tr class="order_item">
+                                             <td class="product-name">
+                                                Processing
+                                             </td>
+                                             <td class="product-name">
+                                                74138
+                                             </td>
+                                             <td class="product-name">
+                                                <a href="http://localhost/o-ecommerce80/details/115">mollitia</a> <strong class="product-quantity">× 1</strong>
+                                             </td>
+                                             <td class="product-total">
+                                                <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">৳&nbsp;</span>26</span>
+                                             </td>
+                                          </tr>
+                                          <tr class="order_item">
+                                             <td class="product-name">
+                                                Processing
+                                             </td>
+                                             <td class="product-name">
+                                                74138
+                                             </td>
+                                             <td class="product-name">
+                                                <a href="http://localhost/o-ecommerce80/details/204">recusandae</a> <strong class="product-quantity">× 1</strong>
+                                             </td>
+                                             <td class="product-total">
+                                                <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">৳&nbsp;</span>30</span>
+                                             </td>
+                                          </tr>
+                                          <tr class="order_item">
+                                             <td class="product-name">
+                                                Processing
+                                             </td>
+                                             <td class="product-name">
+                                                74138
+                                             </td>
+                                             <td class="product-name">
+                                                <a href="http://localhost/o-ecommerce80/details/17">naspoti</a> <strong class="product-quantity">× 1</strong>
+                                             </td>
+                                             <td class="product-total">
+                                                <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">৳&nbsp;</span>300</span>
+                                             </td>
+                                          </tr>
+                                       </tbody>
+                                       <tfoot>
+                                          <tr>
+                                             <th scope="row">Subtotal:</th>
+                                             <td><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">৳&nbsp;</span>906</span></td>
+                                          </tr>
+                                          <tr>
+                                             <th scope="row">Payment Method: </th>
+                                             <td>&nbsp; Cash on Delivery</td>
+                                          </tr>
+                                          <tr>
+                                             <th scope="row">Total:</th>
+                                             <td><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">৳&nbsp;</span><b>906</b></span></td>
+                                          </tr>
+                                       </tfoot>
+                                    </table>
+                                 </div>
+                                 <!-- /.tab-pane -->
+                                 <!-- /.col -->
+                              </div>
+                              <!-- /.row -->
+                           </div>
+                           <!-- /.container -->
+                        </div>
+                        <!-- /.tab-content -->
+                     </div>
+                     <!-- /.col -->
+                  </div>
+                  <!-- /.row -->
+               </div>
+               <!-- /.container -->
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+
+ </div>
+ 
+ 
+{% include "footer.html" %}
+

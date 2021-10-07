@@ -1,0 +1,60 @@
+
+
+{% load static %}
+{% include "header.html" %}
+{% load crispy_forms_tags %}
+<style>
+
+.col-md-6.col-sm-6.create-new-account {
+	margin-left: 273px;
+	background: #fff;
+	border: 1px solid #ccc;
+	/* margin: 0 auto; */
+	text-align: left;
+	width: 640px;
+}
+</style>
+<div class="breadcrumb">
+	<div class="container">
+		<div class="breadcrumb-inner">
+			<ul class="list-inline list-unstyled">
+				<li><a href="home.html">Home</a></li>
+				<li class='active'>Register</li>
+			</ul>
+		</div><!-- /.breadcrumb-inner -->
+	</div><!-- /.container -->
+</div><!-- /.breadcrumb -->
+
+<div class="body-content">
+	<div class="container">
+		<div class="sign-in-page">
+			<div class="row centermsm">
+	
+
+<!-- create a new account {{ form.as_p }}-->
+<div class="col-md-6 col-sm-6 create-new-account">
+	<h4 class="checkout-subtitle">Create a new account</h4>
+	<p class="text title-tag-line">Create your new account.</p>
+
+
+	<form action="" method="POST">
+        {% csrf_token %}
+		{{ form|crispy }}
+            <button class="btn btn-primary">Register</button>
+        </form>
+
+
+</div>
+
+
+<!-- create a new account -->			</div><!-- /.row -->
+		</div><!-- /.sigin-in-->
+		
+		
+
+<!-- ============================================== BRANDS CAROUSEL : END ============================================== -->	</div><!-- /.container -->
+</div><!-- /.body-content -->
+
+
+{% include "footer.html" %}
+

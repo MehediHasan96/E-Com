@@ -1,0 +1,387 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<div class="col-xs-12 col-sm-12 col-md-9 homebanner-holder">
+
+   <div id="hero">
+      <div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm">
+             <div class="item" style="background-image: url({% static 'images/01.jpg' %});">
+            
+            <!-- /.container-fluid --> 
+         </div>
+         <!-- /.item -->
+         <div class="item" style="background-image: url({% static 'images/2.jpg' %});">
+           
+            <!-- /.container-fluid --> 
+         </div>
+         <!-- /.item --> 
+      </div>
+      <!-- /.owl-carousel --> 
+   </div>
+
+
+  <!-- ========================================= SECTION – HERO : END ========================================= -->
+
+  <!-- ============================================== INFO BOXES ============================================== -->
+  <div class="info-boxes wow fadeInUp">
+    <div class="info-boxes-inner">
+      <div class="row">
+        <div class="col-md-6 col-sm-4 col-lg-4">
+          <div class="info-box">
+            <div class="row">
+              <div class="col-xs-12">
+                <h4 class="info-box-heading green">money back</h4>
+              </div>
+            </div>
+            <h6 class="text">30 Days Money Back Guarantee</h6>
+          </div>
+        </div>
+        <!-- .col -->
+
+        <div class="hidden-md col-sm-4 col-lg-4">
+          <div class="info-box">
+            <div class="row">
+              <div class="col-xs-12">
+                <h4 class="info-box-heading green">free shipping</h4>
+              </div>
+            </div>
+            <h6 class="text">Shipping on orders over $99</h6>
+          </div>
+        </div>
+        <!-- .col -->
+
+        <div class="col-md-6 col-sm-4 col-lg-4">
+          <div class="info-box">
+            <div class="row">
+              <div class="col-xs-12">
+                <h4 class="info-box-heading green">Special Sale</h4>
+              </div>
+            </div>
+            <h6 class="text">Extra $5 off on all items</h6>
+          </div>
+        </div>
+        <!-- .col -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.info-boxes-inner -->
+  </div>
+  <!-- /.info-boxes -->
+  <!-- ============================================== INFO BOXES : END ============================================== -->
+
+  <!-- ============================================== FEATURED PRODUCTS ============================================== -->
+  <section class="section wow fadeInUp new-arriavls">
+    <h3 class="section-title">New Arrivals Active</h3>
+    <div
+      class="
+        owl-carousel
+        home-owl-carousel
+        custom-carousel
+        owl-theme
+        outer-top-xs
+      "
+    >
+      {% for p in post %}
+
+      <div class="item item-carousel">
+        <div class="products">
+          <div class="product">
+            <div class="product-image">
+              <div class="image">
+                <a href="{% url 'detail' id=p.id %}"
+                  ><img
+                    src="{% if p.image %} {{ p.image.url }} {% else %} {% static 'images/1.jpg' %} {% endif %}"
+                    alt=""
+                /></a>
+              </div>
+              <!-- /.image -->
+
+              <div class="tag new"><span>new</span></div>
+            </div>
+            <!-- /.product-image -->
+
+            <div class="product-info text-left">
+              <h3 class="name">
+                <a href="{% url 'detail' id=p.id %}">{{ p.title }}</a>
+              </h3>
+
+
+
+            {% if user.id is not None %}
+            
+            <ul class="add-actions-link">
+                <li class="add-cart active">
+                  <a href="{%url 'Add_to_Shoping_cart' id=p.id %}"
+                    >Add to cart</a
+                  >
+                </li>
+              </ul>
+           {% else %}
+          
+              
+               <li style="color: #ffffff"><a href="{% url 'logins' %}"  >Add to cart</a></li>
+           {% endif %}
+
+
+
+          
+
+              <div class="rating rateit-small"></div>
+              <div class="description"></div>
+              <div class="product-price">
+                <span class="price"> {{ p.price }}</span>
+                <span class="price-before-discount">{{ p.old_price }}</span>
+              </div>
+              <!-- /.product-price -->
+            </div>
+            <!-- /.product-info -->
+            <div class="cart clearfix animate-effect">
+              <div class="action">
+                <ul class="list-unstyled">
+                  <li class="add-cart-button btn-group">
+                    <button
+                      data-toggle="tooltip"
+                      class="btn btn-primary icon"
+                      type="button"
+                      title="Add Cart"
+                    >
+                      <i class="fa fa-shopping-cart"></i>
+                    </button>
+                    <button class="btn btn-primary cart-btn" type="button">
+                      Add to cart
+                    </button>
+                  </li>
+                  <li class="lnk wishlist">
+                    <a
+                      data-toggle="tooltip"
+                      class="add-to-cart"
+                      href="detail.html"
+                      title="Wishlist"
+                    >
+                      <i class="icon fa fa-heart"></i>
+                    </a>
+                  </li>
+                  <li class="lnk">
+                    <a
+                      data-toggle="tooltip"
+                      class="add-to-cart"
+                      href="detail.html"
+                      title="Compare"
+                    >
+                      <i class="fa fa-signal" aria-hidden="true"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <!-- /.action -->
+            </div>
+            <!-- /.cart -->
+          </div>
+          <!-- /.product -->
+        </div>
+        <!-- /.products -->
+      </div>
+      <!-- /.item -->
+      {% endfor %}
+
+      <!-- /.item -->
+    </div>
+    <!-- /.home-owl-carousel -->
+  </section>
+  <!-- /.section -->
+  <!-- ============================================== FEATURED PRODUCTS : END ============================================== -->
+
+
+
+
+  <!-- ============================================== FEATURED PRODUCTS ============================================== -->
+  <section class="section wow fadeInUp new-arriavls">
+    <h3 class="section-title">Latest Arrivals</h3>
+    <div
+      class="
+        owl-carousel
+        home-owl-carousel
+        custom-carousel
+        owl-theme
+        outer-top-xs
+      "
+    >
+      {% for p in latest %}
+
+      <div class="item item-carousel">
+        <div class="products">
+          <div class="product">
+            <div class="product-image">
+              <div class="image">
+                <a href="{% url 'detail' id=p.id %}"
+                  ><img src="{{ p.image.url }}" alt=""
+                /></a>
+              </div>
+              <!-- /.image -->
+            </div>
+            <!-- /.product-image -->
+
+            <div class="product-info text-left">
+              <h3 class="name">
+                <a href="{% url 'detail' id=p.id %}">{{ p.title }}</a>
+              </h3>
+              <div class="rating rateit-small"></div>
+              <div class="description"></div>
+              <div class="product-price">
+                <span class="price"> {{ p.price }}</span>
+                <span class="price-before-discount">{{ p.old_price }}</span>
+              </div>
+              <!-- /.product-price -->
+            </div>
+            <!-- /.product-info -->
+            <div class="cart clearfix animate-effect">
+              <div class="action">
+                <ul class="list-unstyled">
+                  <li class="add-cart-button btn-group">
+                    <button
+                      data-toggle="tooltip"
+                      class="btn btn-primary icon"
+                      type="button"
+                      title="Add Cart"
+                    >
+                      <i class="fa fa-shopping-cart"></i>
+                    </button>
+                    <button class="btn btn-primary cart-btn" type="button">
+                      Add to cart
+                    </button>
+                  </li>
+                  <li class="lnk wishlist">
+                    <a
+                      data-toggle="tooltip"
+                      class="add-to-cart"
+                      href="detail.html"
+                      title="Wishlist"
+                    >
+                      <i class="icon fa fa-heart"></i>
+                    </a>
+                  </li>
+                  <li class="lnk">
+                    <a
+                      data-toggle="tooltip"
+                      class="add-to-cart"
+                      href="detail.html"
+                      title="Compare"
+                    >
+                      <i class="fa fa-signal" aria-hidden="true"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <!-- /.action -->
+            </div>
+            <!-- /.cart -->
+          </div>
+          <!-- /.product -->
+        </div>
+        <!-- /.products -->
+      </div>
+      <!-- /.item -->
+      {% endfor %}
+
+      <!-- /.item -->
+    </div>
+    <!-- /.home-owl-carousel -->
+  </section>
+  <!-- /.section -->
+  <!-- ============================================== FEATURED PRODUCTS : END ============================================== -->
+
+  <!-- ============================================== FEATURED PRODUCTS ============================================== -->
+  <section class="section wow fadeInUp new-arriavls">
+    <h3 class="section-title">Popular Post</h3>
+    <div
+      class="
+        owl-carousel
+        home-owl-carousel
+        custom-carousel
+        owl-theme
+        outer-top-xs
+      "
+    >
+      {% for p in popular %}
+
+      <div class="item item-carousel">
+        <div class="products">
+          <div class="product">
+            <div class="product-image">
+              <div class="image">
+                <a href="{% url 'detail' id=p.id %}"
+                  ><img src="{{ p.image.url }}" alt=""
+                /></a>
+              </div>
+              <!-- /.image -->
+            </div>
+            <!-- /.product-image -->
+
+            <div class="product-info text-left">
+              <h3 class="name">
+                <a href="{% url 'detail' id=p.id %}">{{ p.title }}</a>
+              </h3>
+              <div class="rating rateit-small"></div>
+              <div class="description"></div>
+              <div class="product-price">
+                <span class="price"> {{ p.price }}</span>
+                <span class="price-before-discount">{{ p.old_price }}</span>
+              </div>
+              <!-- /.product-price -->
+            </div>
+            <!-- /.product-info -->
+            <div class="cart clearfix animate-effect">
+              <div class="action">
+                <ul class="list-unstyled">
+                  <li class="add-cart-button btn-group">
+                    <button
+                      data-toggle="tooltip"
+                      class="btn btn-primary icon"
+                      type="button"
+                      title="Add Cart"
+                    >
+                      <i class="fa fa-shopping-cart"></i>
+                    </button>
+                    <button class="btn btn-primary cart-btn" type="button">
+                      Add to cart
+                    </button>
+                  </li>
+                  <li class="lnk wishlist">
+                    <a
+                      data-toggle="tooltip"
+                      class="add-to-cart"
+                      href="detail.html"
+                      title="Wishlist"
+                    >
+                      <i class="icon fa fa-heart"></i>
+                    </a>
+                  </li>
+                  <li class="lnk">
+                    <a
+                      data-toggle="tooltip"
+                      class="add-to-cart"
+                      href="detail.html"
+                      title="Compare"
+                    >
+                      <i class="fa fa-signal" aria-hidden="true"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <!-- /.action -->
+            </div>
+            <!-- /.cart -->
+          </div>
+          <!-- /.product -->
+        </div>
+        <!-- /.products -->
+      </div>
+      <!-- /.item -->
+      {% endfor %}
+
+      <!-- /.item -->
+    </div>
+    <!-- /.home-owl-carousel -->
+  </section>
+
+  {% endblock content %}
+</div>

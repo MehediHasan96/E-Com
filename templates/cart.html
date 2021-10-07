@@ -1,0 +1,77 @@
+
+{% load static %}
+{% include "header.html" %}
+
+
+<!--
+<div class="breadcrumb-area">
+  <div class="container">
+    <div class="breadcrumb-content">
+      <ul>
+        <li><a href="{%url 'index'%}">Cart</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div>
+</div>
+
+-->
+
+
+<div class="container my-5">
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col" width="15%">ID</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Image</th>
+        <th scope="col">Quantity</th>
+        <th scope="col" align="right">Price</th>
+        <th scop="col">Remove</th>
+      </tr>
+    </thead>
+    <tbody>
+
+
+      {% for cart in carts %}
+      <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+        <td>{{cart.article.title}}</td>
+         <td><img src="/media/{{cart.article.image}}" class="img-responsive" width="100" height="100"></td>
+        <td>
+          <a class="mr-2" href="{% url 'decrease' id=cart.article.id %}">-</span></a>
+          {{ cart.quantity }}
+          <a class="mr-2" href="{% url 'increase' id=cart.article.id %}">+</span></a>
+        </td>
+        <td align="right">&#2547; {{cart.get_total}}</td>
+        <td><a href="{% url 'remove' id=cart.article.id %}" class="btn btn-danger btn-sm">Remove From Cart</a></td>
+      </tr>
+      {% endfor %}
+      <tr>
+        <th scope="row"></th>
+        <td colspan="2">Total</td>
+        <td align="right">&#2547; {{order.get_totals | floatformat:2 }}</td>
+        <td></td>
+      </tr>
+      <tr>
+        <th scope="row"></th>
+        <td colspan="4" class="text-right">
+          <a href="{% url 'index' %}" class="btn btn-warning mr-4">Continue Shopping</a>
+          <a href="{% url 'checkout' %}" class="btn btn-success mr-4">Proceed To Checkout</a>
+         
+        </td>
+      </tr>
+
+
+    </tbody>
+  </table>
+</div>
+
+
+
+{% include "footer.html" %}
+
+
+
